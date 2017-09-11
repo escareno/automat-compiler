@@ -80,8 +80,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bto_analisis)
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +120,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,29 +136,21 @@ public class Interfaz extends javax.swing.JFrame {
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
        content=OP.AbrirArchivo();
-       
-//       String foo = aux.toString();
-//       String[] bar = foo.split("(?=\\s)|(?=;)|(?=\\=)|(?=,)|(?=>)|(?=<)");
-//       
-//       for (String foobar : bar ){
-//       System.out.println(foobar);
-//}
-
-    one_by_one=content.toCharArray();      
+       one_by_one=content.toCharArray();      
        jTextArea1.setText(content);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void bto_analisisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bto_analisisActionPerformed
 
         IToken  = new IdentifyToken(one_by_one);
-        IToken.inicializaArrays();
-        IToken.metodoChido();
-       fin= IToken.mostrarTodo();
+        IToken.load_lexema_token();
+        IToken.catch_lexema();
+        fin= IToken.almacenar_para_imprimir();
        
        String contentAnalisado="";
        
        for (String next : fin) {
-            contentAnalisado+=next;
+            contentAnalisado+=next+"\n";
         }
          
         jTextArea2.setText(contentAnalisado);
