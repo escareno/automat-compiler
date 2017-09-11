@@ -20,7 +20,7 @@ public class Interfaz extends javax.swing.JFrame {
     IdentifyToken IToken;
     String content="";
     
-     Collection<String> aux=new LinkedList<>();
+     Collection<String> fin=new LinkedList<>();
      char[] one_by_one;
 
     /**
@@ -153,8 +153,15 @@ public class Interfaz extends javax.swing.JFrame {
         IToken  = new IdentifyToken(one_by_one);
         IToken.inicializaArrays();
         IToken.metodoChido();
-        IToken.mostrarTodo();
-        
+       fin= IToken.mostrarTodo();
+       
+       String contentAnalisado="";
+       
+       for (String next : fin) {
+            contentAnalisado+=next;
+        }
+         
+        jTextArea2.setText(contentAnalisado);
     }//GEN-LAST:event_bto_analisisActionPerformed
 
     /**

@@ -250,7 +250,7 @@ public class IdentifyToken {
         return token;
     }
 
-    public void mostrarTodo() {
+    public Collection mostrarTodo() {
         char c;
         String aux = "";
     Collection<String> fin=new ArrayList<>();
@@ -289,12 +289,8 @@ public class IdentifyToken {
                 fin.add(identi.get(i) + "  (" + i + ") (350)");
             }
         }
-      
-        for (Iterator<String> iterator = fin.iterator(); iterator.hasNext();) {
-            String next = iterator.next();
-            System.out.println(next);
-        }
-        
+          return fin;
+    
     }
          
 }
